@@ -1,14 +1,16 @@
 import { Page } from "@playwright/test";
+import { HelperBase } from "./helperBase";
 
-export class NavigationPage{
-    readonly page: Page
+export class NavigationPage extends HelperBase {
+
     constructor(page: Page){
-        this.page = page
+        super(page) // Using the "page" fixture from parent class that is HelperBase
     }
 
     async formLayoutsPage(){
         await this.selectGroupMenuItem('Forms') //Using the helper method that we created to check if the menu is expanded
         await this.page.getByText('Form Layout').click()
+        await this.waitForNumberOfSeconds(2) //Call the methods from parent class without using the page fixture because we are inheriting
     }
 
     async datePickerPage(){
