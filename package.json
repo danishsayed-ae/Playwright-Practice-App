@@ -59,7 +59,7 @@
     "@angular/language-service": "14.2.12",
     "@compodoc/compodoc": "^1.1.19",
     "@fortawesome/fontawesome-free": "^5.2.0",
-    "@playwright/test": "^1.44.0",
+    "@playwright/test": "^1.44.1",
     "@types/leaflet": "1.2.3",
     "@types/node": "^12.12.70",
     "codelyzer": "^0.0.28",
@@ -71,5 +71,15 @@
     "tslint": "~6.1.0",
     "tslint-language-service": "^0.9.9",
     "typescript": "~4.6.4"
-  }
+  },
+  "description": "This is modified and more lightweight version of original application to practice UI Automation with Playwright.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/bondar-artem/pw-practice-app/issues"
+  },
+  "homepage": "https://github.com/bondar-artem/pw-practice-app#readme"
 }
