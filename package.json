@@ -11,7 +11,8 @@
     "start": "ng serve",
     "pageObjects-chrome": "npx playwright test usePageObjects.spec.ts --project=chromium",
     "pageObjects-firefox": "npx playwright test usePageObjects.spec.ts --project=firefox",
-    "pageObjects-all": "npm run pageObjects-chrome & npm run pageObjects-firefox"
+    "pageObjects-all": "npm run pageObjects-chrome & npm run pageObjects-firefox",
+    "uiComponents-chrome": "npx playwright test uiComponents.spec.ts --project=chromium"
   },
   "dependencies": {
     "@angular/animations": "^14.2.12",

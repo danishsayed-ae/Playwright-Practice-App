@@ -5,13 +5,20 @@ test.beforeEach(async ({page}) => {
     await page.goto('http://localhost:4200/')
 });
 
-test.describe('Form layouts page', async () => {
+test.describe.only('Form layouts page', async () => {
+    // Override the global retry for a specific test
+    test.describe.configure({retries: 2})
     test.beforeEach(async ({page}) => {
         await page.getByText('Forms').click()
         await page.getByText('Form Layouts').click()
     })
 
-    test('Input Fields', async ({page}) => {
+    test('Input Fields', async ({page}, testInfo) => {
+        // Can be used to perform certain commands before retry. For eg: DB cleanup
+        if (testInfo.retry) {
+            // Do something
+            
+        }
         const usingTheGridEmailInput = page.locator('nb-card', { hasText: 'Using the Grid' }).getByRole('textbox', { name: 'Email' })
         await usingTheGridEmailInput.fill('test@test.com')
         await usingTheGridEmailInput.clear()
@@ -19,7 +26,7 @@ test.describe('Form layouts page', async () => {
 
         // Generic assertion
         const inputValue = await usingTheGridEmailInput.inputValue()
-        expect(inputValue).toEqual('test@test.com')
+        expect(inputValue).toEqual('test@test.com1')
         
         // Locator assertion
         await expect(usingTheGridEmailInput).toHaveValue('test@test.com')
