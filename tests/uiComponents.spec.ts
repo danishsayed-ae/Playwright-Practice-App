@@ -1,5 +1,8 @@
 import { expect, test } from "@playwright/test"
-import { delay } from "rxjs-compat/operator/delay";
+
+// This will override the global config and run all the tests in this spec file parallel
+test.describe.configure({mode: 'parallel'})
+
 
 test.beforeEach(async ({page}) => {
     await page.goto('http://localhost:4200/')
@@ -21,7 +24,7 @@ test.describe.only('Form layouts page', async () => {
         const usingTheGridEmailInput = page.locator('nb-card', { hasText: 'Using the Grid' }).getByRole('textbox', { name: 'Email' })
         await usingTheGridEmailInput.fill('test@test.com')
         await usingTheGridEmailInput.clear()
-        await usingTheGridEmailInput.pressSequentially('test@test.com', {delay: 50}) // there will be a 50ms delay between each key press
+        await usingTheGridEmailInput.pressSequentially('test@test.com', {delay: 500}) // there will be a 50ms delay between each key press
 
         // Generic assertion
         const inputValue = await usingTheGridEmailInput.inputValue()

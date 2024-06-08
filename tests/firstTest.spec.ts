@@ -14,7 +14,7 @@ test.describe.only("Suite 1", () => {
         await page.getByText("Form Layouts").click()
     })
     test('Navigate to charts page', async ({page}) => {
-        await page.getByText('Charts').click()
+        await page.getByText('Charts').first().click()
         await page.getByText("Echarts").click()
     })
 })
@@ -28,7 +28,7 @@ test.describe("Suite 2", () => {
         await page.getByText("Form Layouts").click()
     })
     test('Navigate to charts page1', async ({page}) => {
-        await page.getByText("Charts").click()
+        await page.getByText('Charts').first().click()
         await page.getByText("Echarts").click()
     })
 })
