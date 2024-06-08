@@ -21,5 +21,8 @@ test('Parameterised Method', async ({page}) => {
     const randomEmail = `${randomFullName.replace(' ', '')}${faker.number.int(100)}@test.com`
     await pm.navigateTo().formLayoutsPage()
     await pm.onFormLayoutsPage().submitUsingTheGridFormUsingCredentialsAndSelectOption('test@test.com', 'Test@1234', 'Option 1')
+    // Use this method to capture a screenshot of the full page and save it in the specific path
+    await page.screenshot({path: 'screenshots/usingTheGrid.png'})
     await pm.onFormLayoutsPage().submitInlineFormUsingCredentialsAndCheckbox(randomFullName, randomEmail, false)
+    await page.locator('nb-card', { hasText: 'Inline form' }).screenshot({path: 'screenshots/inlineForm.png'})
 });

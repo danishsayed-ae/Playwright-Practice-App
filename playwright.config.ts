@@ -34,10 +34,14 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    
     // actionTimeout: 5000,
     navigationTimeout: 10000,
     geolocation: { longitude: 41.890221, latitude: 12.492348 },
     permissions: ['geolocation'],
+
+    // This is used to capture video
+    video: 'on'
   },
 
   /* Configure projects for major browsers */
