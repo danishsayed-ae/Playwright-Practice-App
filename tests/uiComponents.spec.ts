@@ -17,16 +17,15 @@ test.describe.only('Form layouts page', async () => {
         // Can be used to perform certain commands before retry. For eg: DB cleanup
         if (testInfo.retry) {
             // Do something
-            
         }
         const usingTheGridEmailInput = page.locator('nb-card', { hasText: 'Using the Grid' }).getByRole('textbox', { name: 'Email' })
         await usingTheGridEmailInput.fill('test@test.com')
         await usingTheGridEmailInput.clear()
-        await usingTheGridEmailInput.pressSequentially('test@test.com', {delay: 500})
+        await usingTheGridEmailInput.pressSequentially('test@test.com', {delay: 50}) // there will be a 50ms delay between each key press
 
         // Generic assertion
         const inputValue = await usingTheGridEmailInput.inputValue()
-        expect(inputValue).toEqual('test@test.com1')
+        expect(inputValue).toEqual('test@test.com') // Intentionally failing the assertion to check retries
         
         // Locator assertion
         await expect(usingTheGridEmailInput).toHaveValue('test@test.com')

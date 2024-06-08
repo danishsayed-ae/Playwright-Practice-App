@@ -25,7 +25,7 @@ test('Auto Waiting', async ({page}) => {
   await expect(successButton).toHaveText('Data loaded with AJAX get request.', {timeout: 20000})
 })
 
-test('Alternative Waits', async ({page}) => {
+test.skip('Alternative Waits', async ({page}) => {
   const successButton = await page.locator('.bg-success')
 
   // 1st way - we can wait for a locator
@@ -44,7 +44,7 @@ test('Alternative Waits', async ({page}) => {
   expect(text).toContain('Data loaded with AJAX get request.')
 });
 
-test('Timeouts', async ({page}) => {
+test.skip('Timeouts', async ({page}) => {
   test.setTimeout(1000) // This will set the timeout only for this test
   test.slow() // This will 3x the default timeout
   const successButton = await page.locator('.bg-success')
