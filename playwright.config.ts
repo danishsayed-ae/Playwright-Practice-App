@@ -26,7 +26,10 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [
+    ['html'],
+    ['allure-playwright']
+  ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -41,7 +44,11 @@ export default defineConfig({
     permissions: ['geolocation'],
 
     // This is used to capture video only when we run the test from CLI
-    video: 'on'
+    video: {
+      mode: 'on',
+      // Default resolution size is 800x600 we can configure using below command
+      size: {width: 1920, height: 1080}
+    }
   },
 
   /* Configure projects for major browsers */
