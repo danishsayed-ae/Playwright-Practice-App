@@ -24,5 +24,6 @@ test('Parameterised Method', async ({page}) => {
     // Use this method to capture a screenshot of the full page and save it in the specific path
     await page.screenshot({path: 'screenshots/usingTheGrid.png'})
     await pm.onFormLayoutsPage().submitInlineFormUsingCredentialsAndCheckbox(randomFullName, randomEmail, false)
+    // Use the screenshot method after specifying a locator to capture only the specific element
     await page.locator('nb-card', { hasText: 'Inline form' }).screenshot({path: 'screenshots/inlineForm.png'})
 });
