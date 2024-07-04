@@ -2,9 +2,9 @@ import {test} from '@playwright/test'
 import { PageManager } from '../page-objects/pageManager';
 import {fa, faker} from '@faker-js/faker'
 
-test.beforeEach('Navigating to the web page', async ({page}) => {
-    await page.goto('/')
-});
+// test.beforeEach('Navigating to the web page', async ({page}) => {
+//     await page.goto('/')
+// });
 
 test('Navigate to Forms page', async ({page}) => {
     const pm = new PageManager(page)
