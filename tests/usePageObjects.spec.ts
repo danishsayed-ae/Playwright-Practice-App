@@ -27,3 +27,9 @@ test('Parameterised Method', async ({page}) => {
     // Use the screenshot method after specifying a locator to capture only the specific element
     await page.locator('nb-card', { hasText: 'Inline form' }).screenshot({path: 'screenshots/inlineForm.png'})
 });
+
+test.only('Testing with Argos CI', async ({page}) => {
+    const pm = new PageManager(page)
+    await pm.navigateTo().formLayoutsPage()
+    await pm.navigateTo().datePickerPage()
+});
