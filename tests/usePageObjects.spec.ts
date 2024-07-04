@@ -28,7 +28,7 @@ test('Parameterised Method', async ({page}) => {
     await page.locator('nb-card', { hasText: 'Inline form' }).screenshot({path: 'screenshots/inlineForm.png'})
 });
 
-test.only('Testing with Argos CI', async ({page}) => {
+test.only('Testing with Argos CI for capturing screenshots', async ({page}) => {
     const pm = new PageManager(page)
     await pm.navigateTo().formLayoutsPage()
     await pm.navigateTo().datePickerPage()
