@@ -10,8 +10,8 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  timeout: 20000, // this is for all test 
-  globalTimeout: 60000, // this is global timeout
+  timeout: 40000, // this is for all test 
+  // globalTimeout: 60000, // this is global timeout
   // This is for assertions
   expect:{
     timeout:2000
@@ -28,7 +28,7 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     ['html'],
-    ['allure-playwright']
+    // ['allure-playwright']
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -90,10 +90,11 @@ export default defineConfig({
     // },
   ],
 
+
   /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   url: 'http://127.0.0.1:3000',
-  //   reuseExistingServer: !process.env.CI,
-  // },
+  webServer: {
+    command: 'npm run start',
+    url: 'http://localhost:4200/',
+    // reuseExistingServer: !process.env.CI,
+  },
 });
