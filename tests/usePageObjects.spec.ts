@@ -1,6 +1,6 @@
 import {test} from '@playwright/test'
 import { PageManager } from '../page-objects/pageManager';
-import {fa, faker} from '@faker-js/faker'
+import {faker} from '@faker-js/faker'
 
 test.beforeEach('Navigating to the web page', async ({page}) => {
     await page.goto('/')
