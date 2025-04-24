@@ -13,7 +13,7 @@ export default defineConfig({
   // timeout: 40000, // this is for all test 
   // globalTimeout: 60000, // this is global timeout
   // This is for assertions
-  expect:{
+  expect: {
     // timeout:2000
   },
   testDir: './tests',
@@ -28,7 +28,8 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     ['html'],
-    // ['allure-playwright']
+    ['list'],
+    ['allure-playwright']
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -47,7 +48,7 @@ export default defineConfig({
     video: {
       mode: 'on',
       // Default resolution size is 800x600 we can configure using below command
-      size: {width: 1920, height: 1080}
+      size: { width: 1920, height: 1080 }
     }
   },
 
