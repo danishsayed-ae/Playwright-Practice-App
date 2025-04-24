@@ -5,7 +5,7 @@ import {test} from "@playwright/test"
 //     await page.getByText("Forms").click()
 // })
 
-test.describe.only("Suite 1", () => {
+test.describe("Suite 1", () => {
     test.beforeEach('Launching the webpage', async ({page}) => {
         await page.goto("http://localhost:4200/")
     })
